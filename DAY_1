@@ -1,0 +1,25 @@
+####### AoC - DAY 1 #######
+### PART 1
+depths=read.delim("input_AoC_Day1.txt", header=F)
+depths=as.vector(depths$V1)
+increase=vector(length=length(depths))
+for (i in 1:length(depths)-1){
+increase[i]=paste(depths[i] < depths[i+1])}
+
+table(increase)
+
+### PART 2
+
+depths=read.delim("input_AoC_Day1.txt", header=F)
+depths=as.vector(depths$V1)
+
+sum=vector()
+for (i in 1:length(depths)-2){
+sum[i]=sum(depths[i]+ depths[i+1]+depths[i+2])
+}
+
+increase=vector()
+for (i in 1:length(sum)-1){
+increase[i]=paste(sum[i] < sum[i+1])}
+
+table(increase)
