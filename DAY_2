@@ -1,0 +1,31 @@
+####### AoC - DAY 2 #######
+### PART 1
+up=sum(directions$V2[which(directions$V1 =="up")])
+down=sum(directions$V2[which(directions$V1 =="down")])
+horz=sum(directions$V2[which(directions$V1 =="forward")])
+depth=down-up
+depth
+[1] 1049
+horz
+[1] 1944
+
+depth*horz
+ 
+### PART 2
+aim=0
+horz=0
+depth=0
+
+for (i in 1:length(directions$V1)) {
+if (directions[i,1]=="up"){
+aim= aim-directions[i,2] 
+} else if (directions[i,1]=="down"){
+aim= aim+directions[i,2]
+} else if (directions[i,1]=="forward"){
+horz=horz+directions[i,2]
+depth=depth+ aim*directions[i,2]
+}
+}
+
+depth*horz
+
